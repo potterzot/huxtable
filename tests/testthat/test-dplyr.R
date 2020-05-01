@@ -3,7 +3,7 @@
 context("dplyr functions")
 skip_if_not_installed("dplyr")
 
-test_that("select and rename work", {
+test_that("select, rename and relocate work", {
   ht <- hux(a = 1:2, b = 1:2, c = 1:2, d = 1:2)
   bold(ht)[1, ] <- TRUE
   ht2 <- dplyr::select(ht, b:c)
@@ -12,6 +12,16 @@ test_that("select and rename work", {
   ht3 <- dplyr::rename(ht, jim = d, bob = c)
   expect_equivalent(colnames(ht3), c("a", "b", "bob", "jim"))
   expect_equivalent(bold(ht3), bold(ht))
+
+  skip_if_not(packageVersion("dplyr") > "0.8.6")
+  ht4 <- dplyr::relocate(ht, b, a, c, d)
+  expect_equivalent(colnames(ht4), c("b", "a", "c", "d"))
+  ht5 <- dplyr::relocate(ht, d, .before = a)
+  expect_equivalent(colnames(ht5), c("d", "a", "b", "c"))
+  ht6 <- dplyr::relocate(ht, d, .after = a)
+  expect_equivalent(colnames(ht6), c("a", "d", "b", "c"))
+  ht7 <- dplyr::relocate(ht, matches("(c|d)"), .after = a)
+  expect_equivalent(colnames(ht7), c("a", "c", "d", "b"))
 })
 
 

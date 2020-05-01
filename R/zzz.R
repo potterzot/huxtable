@@ -222,6 +222,7 @@ NULL
     register_s3_method('dplyr', 'slice_')
     register_s3_method('dplyr', 'transmute')
     register_s3_method('dplyr', 'transmute_')
+    register_s3_method('dplyr', 'relocate')
   }
   if (requireNamespace('knitr', quietly = TRUE)) {
     register_s3_method('knitr', 'knit_print')

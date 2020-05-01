@@ -17,10 +17,11 @@ mutate.huxtable(.data, ..., copy_cell_props = TRUE)
 }
 \description{
 Huxtable can be used with dplyr verbs \code{\link[dplyr:select]{dplyr::select()}}, \code{\link[dplyr:rename]{dplyr::rename()}},
-\code{\link[dplyr:slice]{dplyr::slice()}}, \code{\link[dplyr:arrange]{dplyr::arrange()}}, \code{\link[dplyr:mutate]{dplyr::mutate()}} and
-\code{\link[dplyr:transmute]{dplyr::transmute()}}. These will return huxtables. Other verbs like \code{\link[dplyr:summarize]{dplyr::summarize()}} will
-simply return data frames as normal; \code{\link[dplyr:pull]{dplyr::pull()}} will return a vector. \code{mutate} has an extra
-option, detailed below.
+\code{\link[dplyr:relocate]{dplyr::relocate()}}, \code{\link[dplyr:slice]{dplyr::slice()}}, \code{\link[dplyr:arrange]{dplyr::arrange()}}, \code{\link[dplyr:mutate]{dplyr::mutate()}}
+and \code{\link[dplyr:transmute]{dplyr::transmute()}}. These will return huxtables. Other verbs like
+\code{\link[dplyr:summarize]{dplyr::summarize()}} will simply return data frames as normal;
+\code{\link[dplyr:pull]{dplyr::pull()}} will return a vector. \code{mutate} has an extra option, detailed
+below.
 }
 \details{
 If \code{mutate} creates new columns, and the argument \code{copy_cell_props} is missing or \code{TRUE}, then cell
